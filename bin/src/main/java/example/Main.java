@@ -12,10 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         Blade.of()
-            .get("/basic-route-example", ctx -> ctx.text("GET called"))
-            .post("/basic-route-example", ctx -> ctx.text("POST called"))
-            .put("/basic-route-example", ctx -> ctx.text("PUT called"))
-            .delete("/basic-route-example", ctx -> ctx.text("DELETE called"))
+            .get("/", ctx -> ctx.render("index.html"))
             .enableCors(true)
             .start(Main.class, args);
     }
