@@ -1,19 +1,33 @@
 package example;
 
-import com.blade.Blade;
-import com.blade.event.EventType;
-import com.blade.mvc.WebContext;
-import com.blade.mvc.http.Session;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class Main {
+@SpringBootApplication
 
-    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(Main.class);
+// Main class
+// Implementing CommandLineRunner interface
+public class Main implements CommandLineRunner 
+{
 
-    public static void main(String[] args) {
+    // Method 1
+    // run() method for springBootApplication to execute
+    @Override
+    public void run(String args[]) throws Exception 
+    {
 
-        Blade.of()
-            .get("/", ctx -> ctx.render("index.html"))
-            .enableCors(true)
-            .start(Main.class, args);
+        // Print statement when method is called
+        System.out.println("HEllo world");
+    }
+
+    // Method 2
+    // Main driver method
+    public static void main(String[] args) 
+    {
+
+        // Calling run() method to execute SpringBootApplication by
+        // invoking run() inside main() method
+        SpringApplication.run(Main.class, args);
     }
 }
